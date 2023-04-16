@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+sudo pacman -S pantheon pantheon-session lightdm lightdm-pantheon-greeter git \
+  networkmanager pipewire pipewire-audio pipewire-pulse docker docker-compose
+
+git clone https://aur.archlinux.org/paru-bin.git
+sudo systemctl enable NetworkManager lightdm docker
+sudo usermod -aG docker machado
+
+cd paru-bin
+
+makepkg -si
+
+paru -S pantheon-unstable gala-git switchboard-plug-pantheon-tweaks-git \
+  pantheon-dock-git file-roller
+
+mkdir -p ~/.config/gtk-3.0/
+mkdir -p ~/.local/share/plank/themes/
+
+cp ../config/gtk-3.0/gtk.css ~/.config/gtk-3.0/
+cp -r ../pantheon-dark/ ~/.local/share/plank/themes/

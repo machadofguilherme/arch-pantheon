@@ -1,0 +1,8 @@
+.panel {
+  background-color: rgba(0,0,0,0.0);
+  transition: all 1s ease-in-out;
+}
+ 
+.panel.maximized {
+  background-color: rgba(0,0,0,1.0);
+}

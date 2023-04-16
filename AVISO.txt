@@ -1,0 +1,3 @@
+Adicionar em "/etc/lightdm/lightdm.conf", após Seat Configuration:
+
+greeter-session = io.elementary.greeter
